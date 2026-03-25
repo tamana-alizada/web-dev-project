@@ -1,9 +1,9 @@
 # project name
 
-## project description
+### project description
 A description about the project
 
-## Team Members:
+### Team Members:
 * Bali Ehsan
 * Alizada Tamana
 * Azizi Hashmatullah
