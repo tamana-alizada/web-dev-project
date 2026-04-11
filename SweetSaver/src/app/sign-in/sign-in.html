@@ -1,0 +1,40 @@
+<main>
+    <div id="left">
+        <div id="logo">
+            <img src="/images/Logo.png" alt="logo">
+        </div>
+
+        <div id="body_text">
+            <p>Welcome back to SweetSaver</p>
+        </div>
+
+        <div id="SignIn">
+            <button type="button" routerLink="/sign-up">Sign Up</button>
+        </div>
+    </div>
+
+    <div id="right">
+        <form (ngSubmit)="login($event)">
+            <label>Username</label>
+            <input type="text" name="username" [ngModel]="username()" (ngModelChange)="username.set($event)" placeholder="Username">
+
+            <label>Password</label>
+            <input type="password" name="password" [ngModel]="password()" (ngModelChange)="password.set($event)" placeholder="Password">
+
+            <button type="submit" id="SignIn" [disabled]="loading()">Sign In</button>
+
+            <p id="Already_have_an_account_btn">
+                create an account?
+                <a routerLink="/sign-up">Sign Up</a>
+            </p>
+        </form>
+
+        <p>{{ message() }}</p>
+
+        <div id="home_icon">
+            <a routerLink="/home">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/home-page-white-icon.png">
+            </a>
+        </div>
+    </div>
+</main>
