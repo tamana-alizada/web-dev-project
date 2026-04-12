@@ -3,31 +3,38 @@
         <div id="logo">
             <img src="/images/Logo.png" alt="logo">
         </div>
+
         <div id="body_text">
             <p>Welcome back to SweetSaver</p>
-
         </div>
-        <div id="SignIn">
-            <a routerLink="/sign-up"> <button>Sign Up</button></a>
-            <a routerLink="/home">
-                <p>Return to Home!</p>
-            </a>
 
+        <div id="SignIn">
+            <button type="button" routerLink="/sign-up">Sign Up</button>
         </div>
     </div>
 
     <div id="right">
-        <a routerLink="/home"><button id="head_button">Return Home</button></a>
-        <br>
-        <form action="">
-            <label for="">Email</label>
-            <input type="email" placeholder="Email">
-            <label for="">Password</label>
-            <input type="password" placeholder="Password">
-            <button id="SignIn">Sign In</button>
+        <form (ngSubmit)="login($event)">
+            <label>Username</label>
+            <input type="text" name="username" [ngModel]="username()" (ngModelChange)="username.set($event)" placeholder="Username">
 
-            <p id="Already_have_an_account_btn">create an account? <a routerLink="/sign-up">Sign Up</a></p>
+            <label>Password</label>
+            <input type="password" name="password" [ngModel]="password()" (ngModelChange)="password.set($event)" placeholder="Password">
 
+            <button type="submit" id="SignIn" [disabled]="loading()">Sign In</button>
+
+            <p id="Already_have_an_account_btn">
+                create an account?
+                <a routerLink="/sign-up">Sign Up</a>
+            </p>
         </form>
+
+        <p>{{ message() }}</p>
+
+        <div id="home_icon">
+            <a routerLink="/home">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/home-page-white-icon.png">
+            </a>
+        </div>
     </div>
 </main>

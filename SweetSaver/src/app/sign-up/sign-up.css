@@ -13,6 +13,9 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #left,
@@ -25,6 +28,8 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    color: #5a3c32;
+    border-radius: 20px;
 }
 
 #form {
@@ -34,16 +39,17 @@ body {
     padding: 20px;
     width: 400px;
     height: 390px;
-    background-color: #fec280;
+    background-color: #fff3e0;
     color: #5a3c32;
     border-radius: 20px;
     justify-content: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: ease 0.5s;
 }
 
 #right {
     width: 300px;
-    background-image: url("https://static.vecteezy.com/system/resources/previews/046/980/722/non_2x/a-rich-velvety-chocolate-splash-captured-mid-air-isolated-on-a-transparent-background-free-png.png");
+    background-image: url("/images/image1.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -52,10 +58,12 @@ body {
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    background-color: #fec280;
+    background-color: #fff3e0;
     color: #fff3e0;
     margin-right: 10px;
     border-radius: 20px;
+    transition: ease 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
 }
 
 @media only screen and (max-width: 400px) {
@@ -88,6 +96,18 @@ input {
     background-color: #fd8a6b;
     color: #fff3e0;
     border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#SignUp:hover {
+    transform: scale(1.03);
+    background-color: #ff4c1a;
+}
+
+#SignUp:active {
+    transform: scale(1.0);
+    background-color: #682411;
 }
 
 #SignIn button {
@@ -97,6 +117,13 @@ input {
     background-color: #fd8a6b;
     color: #5a3c32;
     border: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#SignIn button:hover {
+    transform: scale(1.03);
+    background-color: #ff4c1a;
 }
 
 #logo img {
@@ -106,7 +133,7 @@ input {
 
 #body_text p {
     font-size: 30px;
-    color: white;
+    color: #fd8a6b;
     font-weight: bold;
     margin-bottom: 0;
 }
@@ -134,9 +161,30 @@ input {
     display: none;
 }
 
-@media (max-width: 900px) {
+#home_icon {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #ff6e45;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    transition: ease 0.3s;
+}
+
+#home_icon:hover {
+    transform: scale(1.1);
+    background-color: #ff592b;
+}
+
+@media (max-width: 905px) {
     main {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         gap: 10px;
     }
@@ -157,6 +205,11 @@ input {
     #body_text img {
         max-width: 300px;
     }
+    #home_icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
@@ -166,15 +219,24 @@ input {
     main {
         padding: 12px;
         gap: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     #left,
     #right {
         padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     #form {
         width: 350px;
         padding: 18px;
         border-radius: 16px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        transition: ease 0.5s;
     }
     #right {
         display: none;
@@ -192,6 +254,11 @@ input {
     }
     #heading {
         flex-direction: column;
+        align-items: center;
+    }
+    #home_icon {
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
 }
@@ -214,4 +281,15 @@ input {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+#home_icon img {
+    width: 30px;
+    cursor: pointer;
+}
+
+#home_icon:active {
+    transform: scale(1.1);
+    background-color: #ec3807;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }

@@ -1,40 +1,45 @@
 <main>
-    <div id="heading">
-
-        <a routerLink="/home"><button id = "head_button">Return Home</button></a>
-    </div>
-
     <div id="left">
         <p>CREATE ACCOUNT</p>
 
-        <form action="" id="form">
-            <label for="">Name</label>
-            <input type="text" placeholder="Full Name">
-            <Label>Email</Label>
-            <input type="email" placeholder="Email">
-            <label for="">Password</label>
-            <input type="password" placeholder="Password">
-            <button id="SignUp">Sign Up</button>
+        <form (ngSubmit)="onSubmit($event)" id="form">
+            <label>Name</label>
+            <input type="text" name="username" [ngModel]="username()" (ngModelChange)="username.set($event)" placeholder="Full Name">
 
-            <p id="have_an_account">Already have an account? <a routerLink="/SignIn">Sign In</a></p>
+            <label>Email</label>
+            <input type="email" name="email" [ngModel]="email()" (ngModelChange)="email.set($event)" placeholder="Email">
+
+            <label>Password</label>
+            <input type="password" name="password" [ngModel]="password()" (ngModelChange)="password.set($event)" placeholder="Password">
+
+            <button type="submit" id="SignUp" [disabled]="loading()">Sign Up</button>
+
+            <p id="have_an_account">
+                Already have an account?
+                <a routerLink="/SignIn">Sign In</a>
+            </p>
         </form>
+
+        <p>{{ message() }}</p>
+
+        <div id="home_icon">
+            <a routerLink="/home">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/home-page-white-icon.png">
+            </a>
+        </div>
     </div>
 
     <div id="right">
         <div id="logo">
             <img src="/images/Logo.png" alt="logo">
         </div>
+
         <div id="body_text">
             <p>Welcome to SweetSaver</p>
-
-
         </div>
-        <div id="SignIn">
-            <a routerLink="/SignIn"> <button>Sign In</button></a>
-            <a routerLink="/home">
-                <p>Return to Home!</p>
-            </a>
 
+        <div id="SignIn">
+            <button routerLink="/SignIn" type="button">Sign In</button>
         </div>
     </div>
 </main>
