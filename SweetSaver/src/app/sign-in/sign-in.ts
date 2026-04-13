@@ -1,3 +1,5 @@
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +12,7 @@ import { Auth } from '../services/auth';
   templateUrl: './sign-in.html',
   styleUrls: ['./sign-in.css'],
 })
+export class SignIn {}
 export class SignIn implements OnInit {
   private auth = inject(Auth);
 

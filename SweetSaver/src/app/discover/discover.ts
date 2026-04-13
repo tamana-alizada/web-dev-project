@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Category, Product } from '../core/models';
-import { MOCK_CATEGORIES, MOCK_PRODUCTS } from '../data/mock-data';
+import { Category, MOCK_CATEGORIES, MOCK_PRODUCTS, Product } from './discover-data';
 
 @Component({
   selector: 'app-discover',
