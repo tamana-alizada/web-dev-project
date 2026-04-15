@@ -1,9 +1,9 @@
 :host {
   display: block;
-  --lp-cream: #fdf5e6;
+  --lp-cream: #FFF3E0;
   --lp-ink: #1a1a1a;
   --lp-muted: #5a5348;
-  --lp-coral: #f08080;
+  --lp-coral: #FF9E80;
   --lp-olive: #556b2f;
   --lp-olive-hover: #6a7d3f;
   --lp-white: #ffffff;
@@ -63,7 +63,7 @@
   top: 0;
   left: 0;
   right: 0;
-  padding-top: max(1.5rem, env(safe-area-inset-top, 0));
+  padding-top: max(0.5rem, env(safe-area-inset-top, 0));
   padding-bottom: 0.5rem;
   background: transparent;
   pointer-events: none;
@@ -235,8 +235,14 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-  padding: 0.25rem 0.5rem;
+  padding: 0.15rem 0.35rem;
   display: inline-flex;
+}
+
+.lp-header-wrap--pinned .lp-pill-link {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  padding: 0.25rem 0.65rem;
+  min-height: 32px;
 }
 
 .lp-link-login {
@@ -307,27 +313,24 @@
 
 .lp-hero-visual {
   position: relative;
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 0 clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 4vw, 1.5rem);
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .lp-hero-coral {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 94%;
-  height: 90%;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 1060px;
+  height: 60%;
   background: var(--lp-coral);
-  border-radius: clamp(12px, 3vw, var(--lp-radius-img));
+  border-radius: clamp(16px, 3vw, 32px);
   z-index: 0;
-}
-
-@media (min-width: 600px) {
-  .lp-hero-coral {
-    width: 92%;
-    height: 88%;
-  }
 }
 
 .lp-hero-img {
@@ -336,10 +339,12 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: clamp(12px, 3vw, var(--lp-radius-img));
+  border-radius: clamp(16px, 3vw, 24px);
+  border: clamp(8px, 2vw, 14px) solid var(--lp-ink);
+  background: var(--lp-ink);
   object-fit: cover;
   aspect-ratio: 16 / 10;
-  box-shadow: 0 24px 60px rgba(26, 26, 26, 0.12);
+  box-shadow: 0 24px 60px rgba(26, 26, 26, 0.15);
 }
 
 @media (min-width: 768px) {
