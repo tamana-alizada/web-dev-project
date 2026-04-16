@@ -1,12 +1,14 @@
 :host {
   display: block;
-  --lp-cream: #FFF3E0;
+  --lp-cream: #ffffff;
   --lp-ink: #1a1a1a;
   --lp-muted: #5a5348;
   --lp-coral: #FF9E80;
   --lp-olive: #556b2f;
   --lp-olive-hover: #6a7d3f;
   --lp-white: #ffffff;
+  --lp-btn-bg: #fd8a6b;
+  --lp-btn-hover: #fa5c5c;
   --lp-radius-img: 20px;
   --lp-font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --lp-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -271,9 +273,9 @@
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--lp-white);
-  background: var(--lp-ink);
+  background: var(--lp-btn-bg);
   text-decoration: none;
-  border: 1px solid var(--lp-ink);
+  border: 1px solid var(--lp-btn-bg);
   min-height: 44px;
   white-space: nowrap;
 }
@@ -287,8 +289,8 @@
 
 @media (hover: hover) {
   .lp-btn-signup:hover {
-    background: #333;
-    border-color: #333;
+    background: var(--lp-btn-hover);
+    border-color: var(--lp-btn-hover);
   }
 }
 
@@ -430,14 +432,14 @@
   font-weight: 600;
   font-family: inherit;
   color: var(--lp-white);
-  background: var(--lp-ink);
+  background: var(--lp-btn-bg);
   cursor: pointer;
   min-height: 44px;
 }
 
 @media (hover: hover) {
   .lp-card-buy:hover {
-    background: #333;
+    background: var(--lp-btn-hover);
   }
 }
 
@@ -727,7 +729,7 @@
   font-size: clamp(0.9375rem, 2.5vw, 1rem);
   font-weight: 600;
   color: var(--lp-white);
-  background: var(--lp-olive);
+  background: var(--lp-btn-bg);
   text-decoration: none;
   border: none;
   transition: background 0.2s ease;
@@ -743,7 +745,7 @@
 
 @media (hover: hover) {
   .lp-btn-join:hover {
-    background: var(--lp-olive-hover);
+    background: var(--lp-btn-hover);
   }
 }
 
