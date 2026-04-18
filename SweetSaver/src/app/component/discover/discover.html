@@ -1,0 +1,87 @@
+<div class="container">
+  <app-toast [message]="toastMessage()" [type]="toastType()"></app-toast>
+
+  <div class="top">
+    <div class="img-container">
+      <img src="images/logo.png" alt="SweetSaver logo">
+    </div>
+
+    <div class="search-container">
+      <span class="material-icons search-icon">search</span>
+      <input
+        type="text"
+        placeholder="Search products, shops..."
+        [ngModel]="searchText()"
+        (ngModelChange)="onSearchChange($event)">
+    </div>
+
+    <div class="log-out-container">
+      <button (click)="logout()">Log Out</button>
+    </div>
+  </div>
+
+  <div class="main">
+    @if (loading()) {
+      <p class="no-products">Loading products...</p>
+    } @else if (errorMessage()) {
+      <p class="no-products">{{ errorMessage() }}</p>
+    } @else {
+      <section class="categories-section">
+        <div class="categories-list">
+          <div
+            class="category-card"
+            [class.active]="selectedCategoryId() === null"
+            (click)="selectCategory(null)">
+            <span>All</span>
+            <span class="category-icon">✨</span>
+          </div>
+
+          <div
+            class="category-card"
+            *ngFor="let category of categories()"
+            [class.active]="selectedCategoryId() === category.id"
+            (click)="selectCategory(category.id)">
+            <span>{{ category.name }}</span>
+            <span class="category-icon">{{ category.icon || '🍽️' }}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-section">
+        <div class="products-grid">
+          <div class="product-card" *ngFor="let product of filteredProducts()">
+            <img [src]="product.image_url" [alt]="product.title" class="product-image" />
+
+            <div class="product-info">
+              <h3>{{ product.title }}</h3>
+              <p class="shop-name">{{ product.shop_name }}</p>
+              <p class="description">{{ product.description }}</p>
+
+              <div class="price-row">
+                <span class="new-price">${{ product.price | number:'1.2-2' }}</span>
+                <span class="old-price" *ngIf="product.old_price">${{ product.old_price | number:'1.2-2' }}</span>
+              </div>
+
+              <p class="stock" *ngIf="product.stock > 0">Stock: {{ product.stock }}</p>
+              <p class="out-of-stock" *ngIf="product.stock === 0">Out of stock</p>
+
+              <p class="pickup-time" *ngIf="product.pickup_start && product.pickup_end">
+                Pickup: {{ formatTime(product.pickup_start) }} - {{ formatTime(product.pickup_end) }}
+              </p>
+
+              <button
+                [disabled]="product.stock === 0 || !product.is_available"
+                (click)="addToCart(product.id)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="filteredProducts().length === 0" class="no-products">
+          No products found.
+        </div>
+      </section>
+    }
+  </div>
+</div>

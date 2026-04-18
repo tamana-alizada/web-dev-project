@@ -1,0 +1,74 @@
+<div class="owner-products-page">
+  <app-toast [message]="toastMessage()" [type]="toastType()"></app-toast>
+
+  <h1>Manage Products</h1>
+
+  <div class="product-form-card">
+    <h2>{{ isEditing() ? 'Edit Product' : 'Create Product' }}</h2>
+
+    <div class="form-grid">
+      <select [ngModel]="form().shop" (ngModelChange)="updateFormField('shop', $event)">
+        <option value="">Select Shop</option>
+        <option *ngFor="let shop of shops()" [value]="shop.id">{{ shop.name }}</option>
+      </select>
+
+      <select [ngModel]="form().category" (ngModelChange)="updateFormField('category', $event)">
+        <option value="">Select Category</option>
+        <option *ngFor="let category of categories()" [value]="category.id">{{ category.name }}</option>
+      </select>
+
+      <input type="text" placeholder="Title" [ngModel]="form().title" (ngModelChange)="updateFormField('title', $event)">
+      <input type="text" placeholder="Image URL" [ngModel]="form().image_url" (ngModelChange)="updateFormField('image_url', $event)">
+      <input type="number" placeholder="Price" [ngModel]="form().price" (ngModelChange)="updateFormField('price', $event)">
+      <input type="number" placeholder="Old Price" [ngModel]="form().old_price" (ngModelChange)="updateFormField('old_price', $event)">
+      <input type="number" placeholder="Stock" [ngModel]="form().stock" (ngModelChange)="updateFormField('stock', $event)">
+      <input type="time" [ngModel]="form().pickup_start" (ngModelChange)="updateFormField('pickup_start', $event)">
+      <input type="time" [ngModel]="form().pickup_end" (ngModelChange)="updateFormField('pickup_end', $event)">
+    </div>
+
+    <textarea
+      rows="4"
+      placeholder="Description"
+      [ngModel]="form().description"
+      (ngModelChange)="updateFormField('description', $event)"
+    ></textarea>
+
+    <label class="checkbox-row">
+      <input
+        type="checkbox"
+        [ngModel]="form().is_available"
+        (ngModelChange)="updateFormField('is_available', $event)"
+      >
+      Available
+    </label>
+
+    <div class="form-actions">
+      <button type="button" class="save-btn" (click)="saveProduct()">
+        {{ isEditing() ? 'Update Product' : 'Create Product' }}
+      </button>
+
+      @if (isEditing()) {
+        <button type="button" class="cancel-btn" (click)="resetForm()">Cancel</button>
+      }
+    </div>
+  </div>
+
+  <div class="products-table-card">
+    <h2>My Products</h2>
+
+    <div class="products-list">
+      <div class="product-item" *ngFor="let product of products()">
+        <div>
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.shop_name }} • {{ product.category_name }}</p>
+          <p>€{{ product.price }} • Stock: {{ product.stock }}</p>
+        </div>
+
+        <div class="product-actions">
+          <button type="button" class="edit-btn" (click)="editProduct(product)">Edit</button>
+          <button type="button" class="delete-btn" (click)="deleteProduct(product.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

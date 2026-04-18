@@ -1,0 +1,373 @@
+
+.shops-page {
+  min-height: 100vh;
+  padding: 40px 40px 100px 40px;
+  /* background: linear-gradient(to bottom, #fff8f3, #fffdfb); */
+  font-family: 'Poppins', sans-serif;
+}
+
+.shops-hero {
+  background: linear-gradient(135deg, #fef3c7, #ffedd5);
+  border-radius: 28px;
+  padding: 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.hero-text h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  color: #7c2d12;
+}
+
+.hero-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #92400e;
+}
+
+.section-title {
+  margin-bottom: 18px;
+}
+
+.section-title h2 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.shops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.shop-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  /* box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06); */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.shop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.09);
+}
+
+.shop-image-wrapper {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+}
+
+.shop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-info {
+  padding: 20px;
+}
+
+.shop-info h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+.shop-description {
+  margin: 0 0 14px;
+  color: #52525b;
+  line-height: 1.5;
+  min-height: 48px;
+}
+
+.shop-details p {
+  margin: 6px 0;
+  color: #44403c;
+  font-size: 14px;
+}
+
+.browse-btn {
+  width: 100%;
+  margin-top: 18px;
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.browse-btn:hover {
+  background: var(--secondary);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fffdfb;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* .close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+} */
+
+.close-btn {
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  z-index: 10;
+
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: 26px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.close-btn:hover {
+  background: var(--secondary);
+}
+
+.modal-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: -40px;
+  margin-bottom: 28px;
+  padding-right: 50px;
+  flex-wrap: wrap;
+}
+
+.modal-shop-image {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.modal-shop-text h2 {
+  margin: 0 0 10px;
+  color: var(--accent);
+}
+
+.modal-shop-text p {
+  margin: 6px 0;
+  color: #52525b;
+}
+
+.modal-products h3 {
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+.product-image-wrapper {
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.category-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.product-info {
+  padding: 16px;
+}
+
+.product-info h3 {
+  margin: 0 0 8px;
+  /* color: #27272a; */
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.product-description {
+  margin: 0 0 14px;
+  color: #52525b;
+  font-size: 14px;
+  min-height: 42px;
+  line-height: 1.5;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.new-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.old-price {
+  font-size: 14px;
+  color: #a1a1aa;
+  text-decoration: line-through;
+}
+
+.stock {
+  color: #15803d;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.out-of-stock {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.add-btn {
+  width: 100%;
+  margin-top: 12px;
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-btn:hover:not(:disabled) {
+  background: var(--secondary);
+}
+
+.add-btn:disabled {
+  background: #d4d4d8;
+  cursor: not-allowed;
+}
+
+.empty-products {
+  text-align: center;
+  padding: 30px;
+  border-radius: 18px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .shops-page {
+    padding: 40px 18px 90px;
+  }
+
+  .shops-hero {
+    padding: 28px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .modal-content {
+    padding: 18px;
+  }
+
+  .modal-shop-image {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.pickup-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 8px;
+  padding: 6px 10px;
+
+  background: #fff7ed; /* light orange */
+  color: #c2410c; /* orange text */
+
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+
+  border: 1px solid #fed7aa;
+}

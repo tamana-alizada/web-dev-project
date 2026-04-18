@@ -1,0 +1,78 @@
+<main>
+  <div id="left">
+    <p class="create-account">CREATE ACCOUNT</p>
+
+    <form (ngSubmit)="onSubmit($event)" id="form">
+      <label>Username</label>
+      <input
+        type="text"
+        name="username"
+        [ngModel]="username()"
+        (ngModelChange)="username.set($event)"
+        placeholder="username"
+        required
+      >
+
+      <label>Email</label>
+      <input
+        type="email"
+        name="email"
+        [ngModel]="email()"
+        (ngModelChange)="email.set($event)"
+        placeholder="Email"
+        required
+      >
+
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        [ngModel]="password()"
+        (ngModelChange)="password.set($event)"
+        placeholder="Password"
+        required
+      >
+
+      <button type="submit" id="SignUp" [disabled]="loading()">
+        {{ loading() ? 'Signing Up...' : 'Sign Up' }}
+      </button>
+
+      <p id="have_an_account">
+        Already have an account?
+        <a routerLink="/sign-in">Sign In</a>
+      </p>
+    </form>
+
+    @if (toastVisible()) {
+      <div class="toast"
+           [class.success]="toastType() === 'success'"
+           [class.error]="toastType() === 'error'"
+           [class.info]="toastType() === 'info'">
+        {{ toastMessage() }}
+      </div>
+    }
+
+    <div id="home_icon">
+      <a routerLink="/home">
+        <img
+          src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/home-page-white-icon.png"
+          alt="home"
+        >
+      </a>
+    </div>
+  </div>
+
+  <div id="right">
+    <div id="logo">
+      <img src="/images/logo.png" alt="logo">
+    </div>
+
+    <div id="body_text">
+      <p>Welcome <br>to SweetSaver</p>
+    </div>
+
+    <div id="SignIn">
+      <button routerLink="/sign-in" type="button">Sign In</button>
+    </div>
+  </div>
+</main>

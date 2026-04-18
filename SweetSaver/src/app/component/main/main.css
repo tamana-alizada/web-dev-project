@@ -1,0 +1,68 @@
+/* ==== bottom ====== */
+.bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom div {
+  position: fixed;
+  bottom: 10px;
+  border-radius: 30px;
+  padding: 4px;
+  background-color: var(--background);
+  color: var(--accent);
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.bottom div .material-icons {
+  font-size: 20px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.bottom div .material-icons:hover {
+   border-radius: 50%;
+   box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.bottom a {
+  display: inline-block;
+  color: var(--accent);
+}
+.bottom .active {
+   background-color: var(--primary);
+   color: var(--background);
+   border-radius: 50%;
+   box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+
+  border-radius: 999px;
+  background: #ff4d6d;
+  color: white;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  border: 2px solid white;
+}

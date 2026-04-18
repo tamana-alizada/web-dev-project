@@ -1,0 +1,98 @@
+<div class="shops-page">
+  <app-toast [message]="toastMessage()" [type]="toastType()"></app-toast>
+
+  <section class="shops-section">
+    <div class="section-title">
+      <h2>Available Shops</h2>
+    </div>
+
+    <p *ngIf="loading()">Loading shops...</p>
+    <p *ngIf="errorMessage()" style="color: red;">{{ errorMessage() }}</p>
+
+    <div class="shops-grid" *ngIf="!loading()">
+      <div
+        class="shop-card"
+        *ngFor="let shop of shops()"
+        (click)="openShopModal(shop)"
+      >
+        <div class="shop-image-wrapper">
+          <img [src]="shop.image_url" [alt]="shop.name" class="shop-image" />
+        </div>
+
+        <div class="shop-info">
+          <h3>{{ shop.name }}</h3>
+          <p class="shop-description">{{ shop.description }}</p>
+
+          <div class="shop-details">
+            <p><strong>Address:</strong> {{ shop.address }}</p>
+            <p><strong>Phone:</strong> {{ shop.phone }}</p>
+          </div>
+
+          <button class="browse-btn" type="button">Browse Shop</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="modal-overlay"
+    *ngIf="isModalOpen()"
+    (click)="closeShopModal()"
+  >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeShopModal()">×</button>
+
+      <div class="modal-header" *ngIf="selectedShop() as shop">
+        <img [src]="shop.image_url" [alt]="shop.name" class="modal-shop-image" />
+
+        <div class="modal-shop-text">
+          <h2>{{ shop.name }}</h2>
+          <p>{{ shop.description }}</p>
+          <p><strong>Address:</strong> {{ shop.address }}</p>
+          <p><strong>Phone:</strong> {{ shop.phone }}</p>
+        </div>
+      </div>
+
+      <div class="modal-products">
+        <h3>Products</h3>
+
+        <div class="products-grid" *ngIf="selectedShopProducts().length > 0">
+          <div class="product-card" *ngFor="let product of selectedShopProducts()">
+            <div class="product-image-wrapper">
+              <img [src]="product.image_url" [alt]="product.title" class="product-image" />
+              <span class="category-badge">{{ product.category_name }}</span>
+            </div>
+
+            <div class="product-info">
+              <h3>{{ product.title }}</h3>
+              <p class="product-description">{{ product.description }}</p>
+
+              <div class="price-row">
+                <span class="new-price">${{ product.price | number:'1.2-2' }}</span>
+                <span class="old-price" *ngIf="product.old_price">${{ product.old_price | number:'1.2-2' }}</span>
+              </div>
+
+              <p class="stock" *ngIf="product.stock > 0">Stock: {{ product.stock }}</p>
+              <p class="out-of-stock" *ngIf="product.stock === 0">Out of stock</p>
+
+              <p class="pickup-time" *ngIf="product.pickup_start && product.pickup_end">
+                Pickup: {{ formatTime(product.pickup_start) }} - {{ formatTime(product.pickup_end) }}
+              </p>
+
+              <button
+                class="add-btn"
+                [disabled]="product.stock === 0 || !product.is_available"
+                (click)="addToCart(product.id)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-products" *ngIf="selectedShopProducts().length === 0">
+          This shop has no products yet.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.owner-dashboard h1 {
+  margin-bottom: 20px;
+  color: #7c2d12;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card h3 {
+  margin: 0 0 10px;
+  color: #92400e;
+}
+
+.stat-card p {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  color: #16a34a;
+}

@@ -1,0 +1,97 @@
+<main>
+  <app-toast [message]="toastMessage()" [type]="toastType()"></app-toast>
+
+  <h1>My Cart</h1>
+
+  <p *ngIf="loading()">Loading cart...</p>
+
+  <div class="cart-page" *ngIf="!loading()">
+    <div class="cart-left">
+      <table *ngIf="items().length > 0; else emptyCart">
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+
+        <tr *ngFor="let item of items()">
+          <td class="item-cell">
+            <div id="cart_image">
+              <img [src]="item.product.image_url" alt="product">
+            </div>
+            <span>{{ item.product.title }}</span>
+          </td>
+
+          <td>
+            ${{ item.product.price | number:'1.2-2' }}
+          </td>
+
+          <td>
+            <div class="qty-control">
+              <button type="button" (click)="decrease(item)">-</button>
+
+              <input
+                type="number"
+                [ngModel]="item.quantity"
+                min="1"
+                (ngModelChange)="onQuantityInputChange(item, $event)"
+              >
+
+              <button type="button" (click)="increase(item)">+</button>
+            </div>
+          </td>
+
+          <td>
+            ${{ item.subtotal | number:'1.2-2' }}
+          </td>
+
+          <td>
+            <button type="button" class="delete-btn" (click)="removeItem(item.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <ng-template #emptyCart>
+        <p>Your cart is empty.</p>
+      </ng-template>
+    </div>
+
+    <div class="cart-right">
+      <div class="summary-box">
+        <h2>Purchase Summary</h2>
+
+        <div class="summary-row">
+          <span>Items:</span>
+          <span>{{ items().length }}</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span>${{ getTotal() | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span>Free Shipping</span>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Total:</span>
+          <span>${{ getTotal() | number:'1.2-2' }}</span>
+        </div>
+
+        <button
+          type="button"
+          class="checkout-btn"
+          [disabled]="items().length === 0"
+          (click)="checkout()">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

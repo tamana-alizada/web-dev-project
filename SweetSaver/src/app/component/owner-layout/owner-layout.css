@@ -1,0 +1,40 @@
+.owner-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.owner-sidebar {
+  width: 240px;
+  background: #fff7ed;
+  padding: 24px;
+  border-right: 1px solid #fed7aa;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.owner-sidebar h2 {
+  margin: 0 0 10px;
+  color: #9a3412;
+}
+
+.owner-sidebar a {
+  text-decoration: none;
+  color: #7c2d12;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.owner-sidebar a.active,
+.owner-sidebar a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.owner-main {
+  flex: 1;
+  padding: 24px;
+  background: #fffdfb;
+}

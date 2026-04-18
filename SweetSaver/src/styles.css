@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --secondary: #fd8a6b; /* buttons */
+  --primary: #fa5c5c; /* hovers on buttons */
+  --background: #fff3e0;  /* search bar */
+  --accent: #6d4c41; 
+  --white: white;
+  /* --primary: #f59e0b; */
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #fff8f3, #fffdfb);
+}
+
+button, input {
+  font-family: inherit;
+}

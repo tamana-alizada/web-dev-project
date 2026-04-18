@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+
+<div class="bottom">
+  <div>
+    <a routerLink="/main/discover" routerLinkActive="active">
+      <span class="material-icons discover">explore</span>
+    </a>
+
+    <a routerLink="/main/shops" routerLinkActive="active">
+      <span class="material-icons shops">store</span>
+    </a>
+
+    <a routerLink="/main/cart" routerLinkActive="active" class="cart-link">
+      <span class="material-icons cart">shopping_cart</span>
+
+      @if (cartCount() > 0) {
+        <span class="cart-badge">{{ cartCount() }}</span>
+      }
+    </a>
+
+    <a routerLink="/main/profile" routerLinkActive="active">
+      <span class="material-icons profile">person</span>
+    </a>
+  </div>
+</div>
