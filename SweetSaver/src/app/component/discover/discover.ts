@@ -11,7 +11,7 @@ import { Toast } from '../../shared/toast/toast';
 @Component({
   selector: 'app-discover',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, Toast],
+  imports: [CommonModule, FormsModule, Toast],
   templateUrl: './discover.html',
   styleUrls: ['./discover.css']
 })

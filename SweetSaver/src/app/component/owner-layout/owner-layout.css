@@ -1,40 +1,114 @@
 .owner-layout {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 .owner-sidebar {
-  width: 240px;
-  background: #fff7ed;
-  padding: 24px;
-  border-right: 1px solid #fed7aa;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+    width: 240px;
+    background: #fff7ed;
+    padding: 24px;
+    border-right: 1px solid #fed7aa;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
 }
 
 .owner-sidebar h2 {
-  margin: 0 0 10px;
-  color: #9a3412;
+    margin: 0 0 10px;
+    color: #9a3412;
+    font-size: 24px;
 }
 
 .owner-sidebar a {
-  text-decoration: none;
-  color: #7c2d12;
-  font-weight: 600;
-  padding: 10px 12px;
-  border-radius: 10px;
+    text-decoration: none;
+    color: #7c2d12;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .owner-sidebar a.active,
 .owner-sidebar a:hover {
-  background: var(--primary);
-  color: white;
+    background: var(--primary);
+    color: white;
 }
 
 .owner-main {
-  flex: 1;
-  padding: 24px;
-  background: #fffdfb;
+    flex: 1;
+    padding: 24px;
+    background: #fffdfb;
+    box-sizing: border-box;
+}
+
+
+
+
+@media (max-width: 992px) {
+    .owner-sidebar {
+        width: 200px;
+        padding: 20px;
+    }
+    .owner-sidebar h2 {
+        font-size: 22px;
+    }
+    .owner-main {
+        padding: 20px;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .owner-layout {
+        flex-direction: column;
+    }
+    .owner-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #fed7aa;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+    }
+    .owner-sidebar h2 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 8px;
+        font-size: 20px;
+    }
+    .owner-sidebar a {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+    .owner-main {
+        padding: 16px;
+    }
+}
+
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+    .owner-sidebar {
+        padding: 12px;
+        gap: 8px;
+    }
+    .owner-sidebar h2 {
+        font-size: 18px;
+    }
+    .owner-sidebar a {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+    .owner-main {
+        padding: 12px;
+    }
 }
