@@ -1,0 +1,149 @@
+:host {
+  display: block;
+  --cr-ink: #1a1a1a;
+  --cr-muted: #5a5348;
+  --cr-coral: #FF9E80;
+  --cr-olive: #556b2f;
+  --cr-bg: #fffcf8;
+  --cr-font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --cr-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--cr-bg);
+  min-height: 100vh;
+}
+
+.cr-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  font-family: var(--cr-font-sans);
+  color: var(--cr-ink);
+}
+
+.cr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.cr-logo {
+  width: 140px;
+  height: auto;
+}
+
+.cr-back-btn {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--cr-ink);
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(26,26,26,0.15);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.cr-back-btn:hover {
+  background: var(--cr-ink);
+  color: #fff;
+}
+
+.cr-content {
+  animation: fade-in 0.6s ease-out;
+  text-align: center;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cr-title {
+  font-family: var(--cr-font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--cr-ink);
+}
+
+.cr-lead {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+  color: var(--cr-muted);
+  margin: 0 auto 4rem;
+  max-width: 800px;
+}
+
+.cr-positions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .cr-positions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cr-job-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cr-job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.06);
+}
+
+.cr-job-card h3 {
+  font-family: var(--cr-font-serif);
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--cr-olive);
+}
+
+.cr-job-location {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--cr-coral);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.cr-job-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--cr-muted);
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.cr-apply-btn {
+  background: var(--cr-ink);
+  color: #fff;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.cr-apply-btn:hover {
+  background: var(--cr-muted);
+}
