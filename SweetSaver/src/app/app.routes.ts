@@ -20,6 +20,9 @@ import { Careers } from './component/careers/careers';
 export const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'landing', component: Landing },
+  { path: 'about-us', component: AboutUs },
+  { path: 'contact-us', component: ContactUs },
+  { path: 'careers', component: Careers },
   { path: 'sign-in', component: SignIn },
   { path: 'sign-up', component: SignUp },
   {path: 'about-us', component: AboutUs},
