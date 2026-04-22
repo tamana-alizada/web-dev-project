@@ -79,6 +79,14 @@ export class Auth {
   }
 
   logout(): void {
+    const refresh = this.getRefreshToken();
+
+    if (refresh) {
+      this.http.post(`${this.baseUrl}/api/auth/logout/`, { refresh }).subscribe({
+        error: () => {}
+      });
+    }
+
     localStorage.removeItem('access');
     localStorage.removeItem('refresh');
     localStorage.removeItem('user_role');
