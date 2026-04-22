@@ -96,11 +96,23 @@ export class Shops implements OnInit {
   addToCart(productId: number): void {
     this.cartService.addToCart(productId, 1).subscribe({
       next: () => {
+        // Update local stock in products and selectedShopProducts
+        const updateStock = (list: Product[]) =>
+          list.map((p) =>
+            p.id === productId
+              ? { ...p, stock: p.stock - 1, is_available: p.stock - 1 > 0 }
+              : p
+          );
+
+        this.products.set(updateStock(this.products()));
+        this.selectedShopProducts.set(updateStock(this.selectedShopProducts()));
+
         this.showToast('Item added to cart!', 'success');
       },
       error: (err) => {
         console.log(err);
-        this.showToast('Failed to add item to cart.', 'error');
+        const message = err.error?.error || 'Failed to add item to cart.';
+        this.showToast(message, 'error');
       }
     });
   }

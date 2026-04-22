@@ -126,6 +126,8 @@
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
@@ -140,6 +142,9 @@
 
 .product-info {
   padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-info h3 {
@@ -190,7 +195,7 @@
 
 .products-section button {
   width: 100%;
-  margin-top: 12px;
+  margin-top: auto;
   padding: 10px;
   border: none;
   border-radius: 12px;
