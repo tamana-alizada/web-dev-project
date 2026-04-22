@@ -1,8 +1,11 @@
 # 🍰 SweetSaver
 
-> **Save food. Save money. Taste the difference.**
+> **Save Sweets, Pay Less. Taste the difference.**
 
 SweetSaver is a full-stack multi-vendor web platform designed to **reduce food waste** by connecting bakeries and dessert shops with customers looking for **discounted leftover products**. Shops post unsold items at reduced prices toward the end of the day, and customers can browse, reserve, and pick up their orders before a specified deadline.
+### 🎯 Goal
+
+The main goal of this project is not only to demonstrate modern web development practices (API integration, authentication, component-based UI design), but also to contribute to a meaningful real-world problem — **minimizing food waste** while making quality products more accessible and affordable.
 
 ---
 
@@ -15,7 +18,6 @@ SweetSaver is a full-stack multi-vendor web platform designed to **reduce food w
 - [API Endpoints](#-api-endpoints)
 - [Database Models](#-database-models)
 - [Frontend Structure](#-frontend-structure)
-- [Screenshots](#-screenshots)
 - [Getting Started](#-getting-started)
 - [Team Members](#-team-members)
 
@@ -29,9 +31,6 @@ The system supports **multiple shops**, each managing their own products and off
 
 The platform provides a smooth and intuitive user experience through features such as **category-based browsing**, **search functionality**, and **real-time updates** of product availability.
 
-### 🎯 Goal
-
-The main goal of this project is not only to demonstrate modern web development practices (API integration, authentication, component-based UI design), but also to contribute to a meaningful real-world problem — **minimizing food waste** while making quality products more accessible and affordable.
 
 ---
 
@@ -298,17 +297,11 @@ The frontend will run on `http://localhost:4200`.
 
 ## 👥 Team Members
 
-| Name | Role |
-|------|------|
-| **Bali Ehsan** | Full-Stack Developer |
-| **Alizada Tamana** | Full-Stack Developer |
-| **Azizi Hashmatullah** | Full-Stack Developer |
-
----
-
-## 📄 License
-
-This project was developed as part of a **Web Development** university course.
+| Name 
+|------
+| **Bali Ehsan** |
+| **Alizada Tamana** |
+| **Azizi Hashmatullah** |
 
 ---
 
