@@ -13,10 +13,16 @@ import { OwnerLayout } from './component/owner-layout/owner-layout';
 import { OwnerDashboard } from './component/owner-dashboard/owner-dashboard';
 import { OwnerProductsComponent } from './component/owner-products/owner-products';
 import { ownerGuard } from './services/owner-guard';
+import { AboutUs } from './component/about-us/about-us';
+import { ContactUs } from './component/contact-us/contact-us';
+import { Careers } from './component/careers/careers';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'landing', component: Landing },
+  { path: 'about-us', component: AboutUs },
+  { path: 'contact-us', component: ContactUs },
+  { path: 'careers', component: Careers },
   { path: 'sign-in', component: SignIn },
   { path: 'sign-up', component: SignUp },
 
