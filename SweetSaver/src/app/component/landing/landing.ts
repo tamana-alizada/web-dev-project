@@ -64,7 +64,7 @@ export class Landing {
       name: 'Red Velvet Slice',
       price: 6.0,
       image:
-        'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e4e?w=600&q=80&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1621303838226-5dc7130d5e19?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UmVkJTIwVmVsdmV0JTIwU2xpY2V8ZW58MHx8MHx8fDA%3D',
     },
   ];
 

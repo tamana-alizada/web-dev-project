@@ -1,7 +1,12 @@
 <div class="lp">
   @if (headerPinned()) {
-    <div class="lp-header-spacer" [style.height.px]="barHeight()" aria-hidden="true"></div>
+    <div
+      class="lp-header-spacer"
+      [style.height.px]="barHeight()"
+      aria-hidden="true"
+    ></div>
   }
+
   <div
     class="lp-header-wrap"
     [class.lp-header-wrap--pinned]="headerPinned()"
@@ -9,7 +14,11 @@
   >
     <header class="lp-header">
       <a routerLink="/" class="lp-brand" aria-label="SweetSaver home">
-        <img src="/images/logo.png" alt="SweetSaver Logo" class="logo">
+        <img
+          src="/images/logo.png"
+          alt="SweetSaver Logo"
+          class="logo"
+        />
       </a>
 
       <nav class="lp-nav-pill" aria-label="Primary">
@@ -27,8 +36,10 @@
 
   <section class="lp-hero" aria-labelledby="lp-hero-title">
     <h1 id="lp-hero-title" class="lp-hero-title">Save Sweets, Pay Less</h1>
+
     <div class="lp-hero-visual">
       <div class="lp-hero-coral" aria-hidden="true"></div>
+
       <img
         class="lp-hero-img"
         src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1400&q=85&auto=format&fit=crop"
@@ -43,6 +54,7 @@
 
   <section class="lp-section lp-featured" aria-labelledby="lp-featured-title">
     <h2 id="lp-featured-title" class="lp-visually-hidden">Featured picks</h2>
+
     <div class="lp-cards">
       @for (p of featuredProducts; track p.id) {
         <article class="lp-card">
@@ -54,44 +66,65 @@
             height="260"
             loading="lazy"
           />
+
           <div class="lp-card-body">
             <h3 class="lp-card-title">{{ p.name }}</h3>
-            <p class="lp-card-price">€{{ p.price | number: '1.2-2' }}</p>
-            <button type="button" class="lp-card-buy" (click)="onBuy(p.id)">Buy</button>
+            <p class="lp-card-price">${{ p.price | number: '1.2-2' }}</p>
+            <button
+              type="button"
+              class="lp-card-buy"
+              (click)="onBuy(p.id)"
+            >
+              Buy
+            </button>
           </div>
         </article>
       }
     </div>
   </section>
 
-  <section id="about-us" class="lp-section lp-about" aria-labelledby="lp-about-title">
+  <section
+    id="about-us"
+    class="lp-section lp-about"
+    aria-labelledby="lp-about-title"
+  >
     <p class="lp-eyebrow">About us</p>
-    <h2 id="lp-about-title" class="lp-heading-md">We make sweets smarter, not wasted.</h2>
+    <h2 id="lp-about-title" class="lp-heading-md">
+      We make sweets smarter, not wasted.
+    </h2>
+
     <p class="lp-body lp-about-lead">
-      SweetSaver connects hungry customers with local bakeries and dessert shops that have surplus
-      treats at the end of the day. You save money, shops recover value, and together we cut waste
-      without sacrificing flavor.
+      SweetSaver connects hungry customers with local bakeries and dessert
+      shops that have surplus treats at the end of the day. You save money,
+      shops recover value, and together we cut waste without sacrificing
+      flavor.
     </p>
+
     <div class="lp-features">
       <div class="lp-feature">
         <span class="lp-feature-icon" aria-hidden="true">
           <i class="material-icons">local_florist</i>
         </span>
+
         <div>
           <h3 class="lp-feature-title">Support Local Shops</h3>
           <p class="lp-body">
-            Every reservation helps neighborhood businesses move surplus inventory before closing time.
+            Every reservation helps neighborhood businesses move surplus
+            inventory before closing time.
           </p>
         </div>
       </div>
+
       <div class="lp-feature">
         <span class="lp-feature-icon" aria-hidden="true">
-            <i class="material-icons">monetization_on</i>
+          <i class="material-icons">monetization_on</i>
         </span>
+
         <div>
           <h3 class="lp-feature-title">Save Money</h3>
           <p class="lp-body">
-            Enjoy quality pastries and desserts at a fraction of the usual price - same day, in store.
+            Enjoy quality pastries and desserts at a fraction of the usual
+            price - same day, in store.
           </p>
         </div>
       </div>
@@ -107,6 +140,7 @@
       alt="Freshly baked chocolate chip cookies on a tray"
       loading="lazy"
     />
+
     <img
       class="lp-triptych-img"
       src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJha2VyeXxlbnwwfHwwfHx8MA%3D%3D"
@@ -115,6 +149,7 @@
       alt=""
       loading="lazy"
     />
+
     <img
       class="lp-triptych-img"
       src="https://images.unsplash.com/photo-1534432182912-63863115e106?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJha2VyeXxlbnwwfHwwfHx8MA%3D%3D"
@@ -125,9 +160,14 @@
     />
   </section>
 
-  <section id="how-we-work" class="lp-section lp-steps" aria-labelledby="lp-steps-title">
+  <section
+    id="how-we-work"
+    class="lp-section lp-steps"
+    aria-labelledby="lp-steps-title"
+  >
     <h2 id="lp-steps-title" class="lp-heading-md">How we work?</h2>
     <p class="lp-steps-sub">Follow these simple steps to start saving.</p>
+
     <ol class="lp-step-list">
       <li><span class="lp-step-num">01</span> Discover food</li>
       <li><span class="lp-step-num">02</span> Reserve your order</li>
@@ -144,6 +184,7 @@
       alt="Hands holding lattes with latte art next to a croissant"
       loading="lazy"
     />
+
     <img
       class="lp-grid-img"
       src="https://images.unsplash.com/photo-1618411640018-972400a01458?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -156,25 +197,29 @@
 
   <section id="contact" class="lp-section lp-cta" aria-labelledby="lp-cta-title">
     <h2 id="lp-cta-title" class="lp-heading-md">Connect with us</h2>
+
     <p class="lp-body lp-cta-copy">
-      Join SweetSaver to see tonight&apos;s surplus treats near you and reserve before they&apos;re gone.
+      Join SweetSaver to see tonight&apos;s surplus treats near you and reserve
+      before they&apos;re gone.
     </p>
+
     <a routerLink="/sign-up" class="lp-btn-join">Join Now!</a>
   </section>
 
   <footer class="lp-footer">
     <div class="lp-footer-brand-block">
       <a routerLink="/" class="lp-brand lp-brand-footer">
-        <svg class="lp-brand-icon" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
-          <path
-            fill="currentColor"
-            d="M16 2 18.8 9.2 26 10l-5.5 5.1L22.4 22 16 18.3 9.6 22l1.9-6.9L6 10l7.2-.8L16 2Zm0 6.5-1.4 4.1-4.3.5 3.3 3-1 4.2 3.4-2 3.4 2-1-4.2 3.3-3-4.3-.5L16 8.5Z"
-          />
-        </svg>
-        <span class="lp-brand-text">SweetSaver</span>
+        <span class="lp-brand-name">SweetSaver</span>
       </a>
+
       <div class="lp-social" aria-label="Social media">
-        <a class="lp-social-link" href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <a
+          class="lp-social-link"
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X"
+        >
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             <path
               fill="currentColor"
@@ -182,6 +227,7 @@
             />
           </svg>
         </a>
+
         <a
           class="lp-social-link"
           href="https://instagram.com"
@@ -196,6 +242,7 @@
             />
           </svg>
         </a>
+
         <a
           class="lp-social-link"
           href="https://facebook.com"
@@ -210,20 +257,6 @@
             />
           </svg>
         </a>
-        <a
-          class="lp-social-link"
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M6.5 6.5h2.2V11H6.5V6.5ZM7.6 5.3c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.1.5 1.1 1.2-.4 1.2-1.1 1.2ZM11 11h2.1v.6h.1c.3-.5 1-1.1 2.1-1.1 2.2 0 2.6 1.4 2.6 3.3V17H16v-4.1c0-1 0-2.3-1.4-2.3-1.4 0-1.6 1.1-1.6 2.2V17H11V11Zm-8.5 8h2.2V11H2.5v8Z"
-            />
-          </svg>
-        </a>
       </div>
     </div>
 
@@ -235,6 +268,7 @@
         <a href="#contact" class="lp-footer-link">Contact Us</a>
         <a href="#" class="lp-footer-link">Press</a>
       </div>
+
       <div class="lp-footer-col">
         <h3 class="lp-footer-heading">Product</h3>
         <a href="#" class="lp-footer-link">Design</a>
@@ -242,6 +276,7 @@
         <a href="#" class="lp-footer-link">Development</a>
         <a href="#" class="lp-footer-link">Features</a>
       </div>
+
       <div class="lp-footer-col">
         <h3 class="lp-footer-heading">Resources</h3>
         <a href="#" class="lp-footer-link">Blog</a>

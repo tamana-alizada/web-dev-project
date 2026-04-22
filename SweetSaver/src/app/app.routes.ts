@@ -12,12 +12,10 @@ import { authGuard } from './services/auth-guard';
 import { OwnerLayout } from './component/owner-layout/owner-layout';
 import { OwnerDashboard } from './component/owner-dashboard/owner-dashboard';
 import { OwnerProductsComponent } from './component/owner-products/owner-products';
-// import { OwnerOrders } from './component/owner-orders/owner-orders';
 import { ownerGuard } from './services/owner-guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: Home },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'landing', component: Landing },
   { path: 'sign-in', component: SignIn },
   { path: 'sign-up', component: SignUp },
@@ -46,5 +44,5 @@ export const routes: Routes = [
   ]
   },
 
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'landing' }
 ];

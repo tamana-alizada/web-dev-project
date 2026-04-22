@@ -11,8 +11,6 @@ import { Auth } from '../../services/auth';
   styleUrls: ['./sign-in.css'],
 })
 export class SignIn implements OnInit {
-  constructor(private router: Router) {}
-
   private auth = inject(Auth);
 
   logged = signal(false);
@@ -21,6 +19,8 @@ export class SignIn implements OnInit {
   message = signal('');
   loading = signal(false);
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     if (localStorage.getItem('access')) {
       this.logged.set(true);
@@ -28,7 +28,7 @@ export class SignIn implements OnInit {
     }
   }
 
-  login(event: Event) {
+  login(event: Event): void {
     event.preventDefault();
 
     if (this.loading()) return;
@@ -41,45 +41,45 @@ export class SignIn implements OnInit {
     this.loading.set(true);
     this.message.set('');
 
-   this.auth.login(this.username(), this.password()).subscribe({
-  next: (authToken) => {
-    this.auth.saveTokens(authToken);
+    this.auth.login(this.username(), this.password()).subscribe({
+      next: (authToken) => {
+        this.auth.saveTokens(authToken);
 
-    this.auth.getProfile().subscribe({
-      next: (user) => {
-        this.auth.saveUserRole(user.role);
+        this.auth.getProfile().subscribe({
+          next: (user) => {
+            this.auth.saveUserRole(user.role);
 
-        this.logged.set(true);
-        this.message.set('You are logged in successfully');
+            this.logged.set(true);
+            this.message.set('You are logged in successfully');
 
-        this.username.set('');
-        this.password.set('');
-        this.loading.set(false);
+            this.username.set('');
+            this.password.set('');
+            this.loading.set(false);
 
-        if (user.role === 'owner') {
-          this.router.navigate(['/owner/dashboard']);
-        } else {
-          this.router.navigate(['/main/discover']);
-        }
+            if (user.role === 'owner') {
+              this.router.navigate(['/owner/dashboard']);
+            } else {
+              this.router.navigate(['/main/discover']);
+            }
+          },
+          error: (err) => {
+            console.log(err);
+            this.message.set('Failed to load user profile.');
+            this.loading.set(false);
+          },
+        });
       },
-      error: (err) => {
-        console.log(err);
-        this.message.set('Failed to load user profile.');
+      error: (error) => {
+        console.log(error);
+
+        if (error.status === 401) {
+          this.message.set('Invalid username or password');
+        } else {
+          this.message.set('Login failed. Please try again.');
+        }
+
         this.loading.set(false);
-      }
+      },
     });
-  },
-  error: (error) => {
-    console.log(error);
-
-    if (error.status === 401) {
-      this.message.set('Invalid username or password');
-    } else {
-      this.message.set('Login failed. Please try again.');
-    }
-
-    this.loading.set(false);
-  }
-});
   }
 }

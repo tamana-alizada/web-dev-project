@@ -8,52 +8,77 @@
   </div>
 } @else if (profile(); as userProfile) {
   <div class="profile-page">
-    <app-toast [message]="toastMessage()" [type]="toastType()"></app-toast>
+    <app-toast
+      [message]="toastMessage()"
+      [type]="toastType()"
+    ></app-toast>
 
     <section class="profile-hero">
-  <div class="profile-top">
-    <div class="avatar-block">
-      <img [src]="userProfile.avatar_url" [alt]="userProfile.full_name" class="avatar">
+      <div class="profile-top">
+        <div class="avatar-block">
+          <img
+            [src]="userProfile.avatar_url"
+            [alt]="userProfile.full_name"
+            class="avatar"
+          />
 
-      @if (isEditing()) {
-        <label class="upload-photo-btn">
-          Change Photo
-          <input type="file" accept="image/*" (change)="onImageSelected($event)" hidden>
-        </label>
-      }
-    </div>
+          @if (isEditing()) {
+            <label class="upload-photo-btn">
+              Change Photo
+              <input
+                type="file"
+                accept="image/*"
+                (change)="onImageSelected($event)"
+                hidden
+              />
+            </label>
+          }
+        </div>
 
-    <div class="profile-main-info">
-      <h1>{{ userProfile.full_name }}</h1>
-      <p class="username">@{{ userProfile.username }}</p>
-      <p class="bio">{{ userProfile.bio }}</p>
-    </div>
+        <div class="profile-main-info">
+          <h1>{{ userProfile.full_name }}</h1>
+          <p class="username">@{{ userProfile.username }}</p>
+          <p class="bio">{{ userProfile.bio }}</p>
+        </div>
 
-    <div class="profile-actions">
-      @if (!isEditing()) {
-        <button class="action-btn edit-btn" type="button" (click)="startEditing()">
-          Edit Profile
-        </button>
-      } @else {
-        <button
-          class="action-btn save-btn"
-          type="button"
-          [disabled]="saving()"
-          (click)="saveProfile()">
-          {{ saving() ? 'Saving...' : 'Save' }}
-        </button>
+        <div class="profile-actions">
+          @if (!isEditing()) {
+            <button
+              class="action-btn edit-btn"
+              type="button"
+              (click)="startEditing()"
+            >
+              Edit Profile
+            </button>
+          } @else {
+            <button
+              class="action-btn save-btn"
+              type="button"
+              [disabled]="saving()"
+              (click)="saveProfile()"
+            >
+              {{ saving() ? 'Saving...' : 'Save' }}
+            </button>
 
-        <button class="action-btn cancel-btn" type="button" (click)="cancelEditing()">
-          Cancel
-        </button>
-      }
+            <button
+              class="action-btn cancel-btn"
+              type="button"
+              (click)="cancelEditing()"
+            >
+              Cancel
+            </button>
+          }
 
-      <button class="action-btn logout-btn" type="button" (click)="logout()">
-        Log Out
-      </button>
-    </div>
-  </div>
-</section>
+          <button
+            class="action-btn logout-btn"
+            type="button"
+            (click)="logout()"
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
+    </section>
 
     <section class="profile-details">
       <div class="details-card">
@@ -70,7 +95,7 @@
               type="text"
               [ngModel]="editFullName()"
               (ngModelChange)="editFullName.set($event)"
-            >
+            />
           }
         </div>
 
@@ -95,7 +120,7 @@
               type="text"
               [ngModel]="editPhone()"
               (ngModelChange)="editPhone.set($event)"
-            >
+            />
           }
         </div>
 
@@ -110,7 +135,7 @@
               type="text"
               [ngModel]="editCity()"
               (ngModelChange)="editCity.set($event)"
-            >
+            />
           }
         </div>
       </div>
@@ -132,34 +157,42 @@
     </section>
 
     <section class="orders-section">
-  <div class="details-card">
-    <h2>Order History</h2>
+      <div class="details-card">
+        <h2>Order History</h2>
 
-    @if (orders().length === 0) {
-      <p class="about-text">No orders yet.</p>
-    } @else {
-      <div class="order-card" *ngFor="let order of orders()">
-        <div class="order-header">
-          <div>
-            <strong>Order #{{ order.id }}</strong>
-            <p class="order-date">{{ order.created_at | date:'medium' }}</p>
-          </div>
+        @if (orders().length === 0) {
+          <p class="about-text">No orders yet.</p>
+        } @else {
+          @for (order of orders(); track order.id) {
+            <div class="order-card">
+              <div class="order-header">
+                <div>
+                  <strong>Order #{{ order.id }}</strong>
+                  <p class="order-date">
+                    {{ order.created_at | date: 'medium' }}
+                  </p>
+                </div>
 
-          <div class="order-meta">
-            <span class="order-status">{{ order.status }}</span>
-            <span class="order-total">${{ order.total | number:'1.2-2' }}</span>
-          </div>
-        </div>
+                <div class="order-meta">
+                  <span class="order-status">{{ order.status }}</span>
+                  <span class="order-total">
+                    ${{ order.total | number: '1.2-2' }}
+                  </span>
+                </div>
+              </div>
 
-        <div class="order-items">
-          <div class="order-item" *ngFor="let item of order.items">
-            <span>{{ item.title }} × {{ item.quantity }}</span>
-            <span>${{ item.subtotal | number:'1.2-2' }}</span>
-          </div>
-        </div>
+              <div class="order-items">
+                @for (item of order.items; track $index) {
+                  <div class="order-item">
+                    <span>{{ item.title }} × {{ item.quantity }}</span>
+                    <span>${{ item.subtotal | number: '1.2-2' }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        }
       </div>
-    }
-  </div>
-</section>
+    </section>
   </div>
 }
